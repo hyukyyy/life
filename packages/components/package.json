@@ -14,5 +14,24 @@
   "dependencies": {
     "@configs/tailwind": "workspace:^",
     "react": "18.3.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.x.x",
+    "twin.macro": "^3.x.x",
+    "@babel/core": "^7.x.x",
+    "babel-plugin-macros": "^3.x.x",
+    "@babel/preset-react": "^7.x.x",
+    "@babel/preset-typescript": "^7.x.x",
+    "@types/react": "^18.x.x",
+    "@types/react-dom": "^18.x.x"
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components"
+    }
+  },
+  "peerDependencies": {
+    "styled-components": "^6.x.x",
+    "twin.macro": "^3.x.x"
   }
 }

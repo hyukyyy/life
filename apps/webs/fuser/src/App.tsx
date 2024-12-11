@@ -1,8 +1,8 @@
+import { Dot } from "@packages/components"
+
 function App() {
 
-  return (
-    <div></div>
-  )
+  return (<Dot />)
 }
 
 export default App

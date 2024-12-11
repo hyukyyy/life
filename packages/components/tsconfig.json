@@ -6,11 +6,13 @@
     "jsx": "react",
     "module": "commonjs",
     "target": "es5",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["react"]
   },
   "include": [
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "twin.d.ts"
   ],
   "exclude": [
     "node_modules",
