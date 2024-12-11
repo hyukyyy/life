@@ -9,14 +9,15 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build:comp": "pnpm --filter @packages/component build",
-		"dev:comp": "pnpm --filter @packages/component dev",
-		"dev:app": "pnpm --filter fuser dev"
+    "dev:comp": "pnpm --filter @packages/component dev",
+    "dev:app": "pnpm --filter fuser dev"
   },
   "dependencies": {
     "@configs/tailwind": "workspace:^",
     "@packages/components": "workspace:^",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
