@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber'
-import { Fisheye, CameraControls, PerspectiveCamera, Environment } from '@react-three/drei'
+import { Fisheye, CameraControls, PerspectiveCamera, Environment, Billboard, Text } from '@react-three/drei'
 import { Level, Sudo, Camera, Cactus, Box } from '../components/template/GameLandScene'
+import { Color } from 'three'
 
 export default function GameLand() {
   return (
@@ -17,6 +18,17 @@ export default function GameLand() {
         </group>
         <Environment preset="dawn" background blur={1} />
         <PerspectiveCamera makeDefault position={[0, 0, 18.5]} />
+        <Billboard
+          position={[3, 3, 3]}
+          follow={true}
+        >
+          <Text 
+            fontSize={2} 
+            color={new Color(0, 0, 0)}
+          >
+            This is my house
+          </Text>
+        </Billboard>
       </Fisheye>
     </Canvas>
   )

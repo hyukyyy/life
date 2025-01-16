@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { useEffect, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { MeshWobbleMaterial, useGLTF } from '@react-three/drei'
+import { Clone, Decal, MeshWobbleMaterial, Texture, useGLTF } from '@react-three/drei'
 import { useSpring, a } from '@react-spring/three'
 
 export function Level() {
@@ -43,7 +43,20 @@ export function Camera() {
   }, [])
   return (
     <a.group position={[-0.58, 0.83, -0.03]} rotation={[Math.PI / 2, 0, 0.47]} {...spring}>
-      <mesh geometry={nodes.Camera.geometry} material={nodes.Camera.material} />
+      <mesh geometry={nodes.Camera.geometry} material={nodes.Camera.material}>
+        <Decal
+          debug // Makes "bounding box" of the decal visible
+          position={[0, 0, 0]} // Position of the decal
+          rotation={[0, 0, 0]} // Rotation of the decal (can be a vector or a degree in radians)
+          scale={0.1} // Scale of the decal
+        >
+          <meshBasicMaterial
+            map={new THREE.Texture('bondee.jpg')}
+            polygonOffset
+            polygonOffsetFactor={-1} // The material should take precedence over the original
+          />
+        </Decal>
+      </mesh>
       <mesh geometry={nodes.Camera_1.geometry} material={materials.Lens} />
     </a.group>
   )
@@ -52,9 +65,9 @@ export function Camera() {
 export function Cactus() {
   const { nodes, materials } = useGLTF('/level-react-draco.glb')
   return (
-    <mesh geometry={nodes.Cactus.geometry} position={[-0.42, 0.51, -0.62]} rotation={[Math.PI / 2, 0, 0]}>
-      <MeshWobbleMaterial factor={0.4} map={materials.Cactus.map} />
-    </mesh>
+      <mesh geometry={nodes.Cactus.geometry} position={[-0.42, 0.51, -0.62]} rotation={[Math.PI / 2, 0, 0]}>
+        <MeshWobbleMaterial factor={0.4} map={materials.Cactus.map} />
+      </mesh>
   )
 }
 
