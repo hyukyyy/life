@@ -1,12 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Kitchen } from "../pages/Kitchen";
-import SpinningBox from "../pages/SpinningBox";
+
 import GameLand from "../pages/GameLand";
+import Card from "../pages/Card";
+import { City } from "../pages/City";
+import Playground from "../pages/Playground";
+import { GravityPage } from "../pages/Gravity";
 
 const router = createBrowserRouter([
     {
         path: '',
-        element: <SpinningBox />,
+        element: <Playground />,
     },
     {
         path: '/kitchen',
@@ -15,7 +19,19 @@ const router = createBrowserRouter([
     {
         path: '/game-land',
         element: <GameLand />
-    }
+    },
+    {
+        path: '/card',
+        element: <Card />
+    },
+    {
+        path: '/city',
+        element: <City />
+    },
+    {
+        path: '/gravity',
+        element: <GravityPage />
+    },
 ])
 
 export default router;

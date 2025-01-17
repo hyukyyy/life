@@ -17,12 +17,14 @@ export const Kitchen = () => (
   </Canvas>
 )
 
-function Effects() {
+export function Effects() {
   const { size } = useThree()
-  useFrame((state, delta) => {
-    easing.damp3(state.camera.position, [state.pointer.x, 1 + state.pointer.y / 2, 8 + Math.atan(state.pointer.x * 2)], 0.3, delta)
-    state.camera.lookAt(state.camera.position.y * 0.9, 0, -4)
-  })
+
+  // useFrame((state, delta) => {
+  //   easing.damp3(state.camera.position, [state.pointer.x, 1 + state.pointer.y / 2, 8 + Math.atan(state.pointer.x * 2)], 0.3, delta)
+  //   state.camera.lookAt(state.camera.position.y * 0.9, 0, -4)
+  // });
+  
   return (
     <EffectComposer 
       stencilBuffer disableNormalPass autoClear={false} multisampling={4}>
