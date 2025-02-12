@@ -1,4 +1,4 @@
-import BgRoundIconButton from './BgRoundIconButton';
+import BgRoundIconButton from './BgRoundIconButton.tsx';
 
 interface Props {
   onClick: () => void;
