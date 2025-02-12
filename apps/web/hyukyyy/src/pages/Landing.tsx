@@ -1,3 +1,5 @@
+import Header from "@/components/template/Header.tsx";
+
 export default function Landing() {
-    return <div>Landing Page</div>;
+    return <Header />;
 }
