@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import BouncingButton from "@/components/molecule/BouncingButton.tsx";
 
 const Wrapper = styled.div`
-    ${tw`sticky top-0 h-[80px] flex items-center justify-between`};
+    ${tw`sticky top-0 h-[80px] flex items-center justify-between z-10`};
     ${tw`duration-300`}
 `
 
@@ -15,7 +15,8 @@ export default function Header() {
 
     return <Wrapper className={`bg-gray-100 dark:bg-black`}>
 
-        <BouncingButton className={`
+        <BouncingButton
+            className={`
             flex
             flex-row
             gap-2
@@ -25,7 +26,7 @@ export default function Header() {
             dark:text-white
         `} onClick={() => navigate('/')}>
             <RoundImg src={`/profile_img.jpg`}/>
-            <span >Hi! I'm HYUKYYY</span>
+            <span>Hi! I'm HYUKYYY</span>
         </BouncingButton>
 
         <div className="p-2">

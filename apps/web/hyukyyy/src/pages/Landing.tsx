@@ -19,5 +19,8 @@ export default function Landing() {
         <Header />
         <img src={`https://capsule-render.vercel.app/api?type=waving&color=timeGradient&height=300&section=header&text=HYUKYYY&fontSize=60&animation=fadeIn&fontColor=${isDarkMode ? 'ffffff' : '000000'}`} alt={'landing_page_svg'}/>
         <Card />
+        <div>
+            
+        </div>
     </>;
 }
