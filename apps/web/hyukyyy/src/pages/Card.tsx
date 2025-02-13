@@ -1,26 +1,27 @@
-import { Environment, MeshPortalMaterial, PerspectiveCamera } from '@react-three/drei'
+import {Environment, Gltf, MeshPortalMaterial, PerspectiveCamera} from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Root, Container, Text, setPreferredColorScheme, Content, Fullscreen } from '@react-three/uikit'
+import {Root, Container, Text, setPreferredColorScheme, Content, isDarkMode} from '@react-three/uikit'
 import { useMemo, useRef } from 'react'
 import { signal } from '@preact/signals-core'
 import { easing, geometry } from 'maath'
+import useLayoutStore from "@/store/LayoutStore.ts";
 
 setPreferredColorScheme('light')
 
 export default function Card() {
   return (
       <Canvas
-          camera={{ position: [0, 0, 18], fov: 32.5 }}
-          style={{ height: '100dvh', touchAction: 'none' }}
+          camera={{ position: [0, 0, 18], fov: 20 }}
+          style={{ width: '100vw', height: '56vw', touchAction: 'none' }}
           gl={{ localClippingEnabled: true }}
       >
         <ambientLight intensity={Math.PI} />
         <spotLight decay={0} position={[0, 5, 10]} angle={0.25} penumbra={1} intensity={2} castShadow />
         <CardPage />
-        <Fullscreen flexDirection="column" justifyContent="flex-end" alignItems="center" paddingBottom={32}>
-          <Text>Source Code</Text>
-        </Fullscreen>
-        <Environment preset="city" />
+        {/*<Fullscreen flexDirection="column" justifyContent="flex-end" alignItems="center" paddingBottom={32}>*/}
+        {/*  <Text>Source Code</Text>*/}
+        {/*</Fullscreen>*/}
+        <Environment preset={isDarkMode ? 'night' : "city"} />
         <Rig />
       </Canvas>
   )
@@ -40,9 +41,11 @@ export function CardPage() {
   const openRef = useRef(false)
   const translateY = useMemo(() => signal(-460), [])
   const translateZ = useMemo(() => signal(0), [])
+  const {isDarkMode} = useLayoutStore();
+
   useFrame((_, delta) => {
-    easing.damp(translateY, 'value', openRef.current ? 0 : -460, 0.2, delta)
-    easing.damp(translateZ, 'value', openRef.current ? 200 : 0, 0.2, delta)
+    easing.damp(translateY, 'value', openRef.current ? 0 : -200, 0.2, delta)
+    easing.damp(translateZ, 'value', openRef.current ? 100 : 0, 0.2, delta)
   })
   return (
       <Root flexDirection="column" pixelSize={0.01} sizeX={4.4}>
@@ -59,7 +62,9 @@ export function CardPage() {
           <Content transformTranslateZ={1} padding={14} keepAspectRatio={false} width="100%" height={400}>
             <mesh geometry={cardGeometry}>
               <MeshPortalMaterial transparent>
-                <color attach="background" args={['white']} />
+                <Gltf src="/glb/totoro.glb" position={[0, -13, -15]} />
+
+                <color attach="background" args={[isDarkMode ? 'black' : 'white']} />
                 <ambientLight intensity={Math.PI} />
                 <Environment preset="city" />
                 <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
@@ -79,10 +84,10 @@ export function CardPage() {
           >
             <Container flexDirection="column" gap={8}>
               <Text fontWeight="normal" fontSize={24} lineHeight="100%">
-                VanArsdel Marketing
+                HYUKYYY
               </Text>
               <Text fontSize={20} fontWeight="medium" letterSpacing={-0.4}>
-                1 activities for you
+                HI! I'M HYUKYYY
               </Text>
             </Container>
           </Container>
