@@ -1,6 +1,6 @@
 import {Project} from "@/contants/sites.ts";
 import H1Title from "@/components/atom/H1Title.tsx";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 interface Props {
     project: Project;
@@ -8,9 +8,6 @@ interface Props {
 
 export default function ProjectCard({project}: Props) {
     const [hovered, setHovered] = useState<boolean>(false);
-    useEffect(() => {
-        console.log(hovered)
-    }, [hovered]);
 
     return <a
         href={project.url}
@@ -26,15 +23,17 @@ export default function ProjectCard({project}: Props) {
                 w-[360px] 
                 h-auto 
                 aspect-video 
-                p-1 
-                hover:opacity-90 
+                p-2 
+                bg-black
                 duration-200
                 relative
+                hover:opacity-90 
+                rounded-md
             `}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            <H1Title className={`p-2`}>
+            <H1Title className={`p-2 text-white`}>
                 {project.title}
             </H1Title>
 

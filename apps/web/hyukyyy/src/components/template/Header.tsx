@@ -14,7 +14,6 @@ export default function Header() {
     const navigate = useNavigate();
 
     return <Wrapper className={`bg-gray-100 dark:bg-black`}>
-
         <BouncingButton
             className={`
             flex

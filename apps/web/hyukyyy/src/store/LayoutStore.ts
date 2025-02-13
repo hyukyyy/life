@@ -5,12 +5,16 @@ import {createSetter} from '@/store/storeUtil.ts';
 interface state {
     sideMenuOpen: boolean;
     isDarkMode: boolean;
+    careerTabOpen: boolean;
+    projectTabOpen: boolean;
 }
 
 interface action {
     setSideMenuOpen: (value: boolean) => void;
     toggleSideMenuOpen: () => void;
     toggleIsDarkMode: () => void;
+    toggleProjectTabOpen: () => void;
+    toggleCareerTabOpen: () => void;
 }
 
 export type Store = state & action;
@@ -20,6 +24,8 @@ const useLayoutStore = create<Store>()(
         sideMenuOpen: false,
         setSideMenuOpen: createSetter(set, 'sideMenuOpen'),
         isDarkMode: false,
+        projectTabOpen: false,
+        careerTabOpen: false,
         toggleSideMenuOpen: () =>
             set(
                 (state) => ({
@@ -35,6 +41,22 @@ const useLayoutStore = create<Store>()(
                 }),
                 false,
                 `isDarkMode`
+            ),
+        toggleProjectTabOpen: () =>
+            set(
+                (state) => ({
+                    projectTabOpen: !state.projectTabOpen,
+                }),
+                false,
+                `projectTabOpen`
+            ),
+        toggleCareerTabOpen: () =>
+            set(
+                (state) => ({
+                    careerTabOpen: !state.careerTabOpen,
+                }),
+                false,
+                `careerTabOpen`
             ),
     }))
 );
