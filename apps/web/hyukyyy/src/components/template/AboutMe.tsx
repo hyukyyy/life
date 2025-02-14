@@ -13,7 +13,7 @@ export default function AboutMe() {
         <div className={`flex justify-center items-center`}>
             <div className={`flex flex-row justify-between flex-wrap gap-4`}>
                 {
-                    myInfo.map(info => <MeCard info={info} />)
+                    myInfo.map(info => <MeCard key={info.fieldName} info={info} />)
                 }
             </div>
         </div>
