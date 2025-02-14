@@ -2,7 +2,7 @@ import Header from "@/components/template/Header.tsx";
 import {useEffect} from "react";
 import useLayoutStore from "@/store/LayoutStore.ts";
 import Card from "@/pages/Card.tsx";
-import {projects} from "@/contants/sites.ts";
+import {projects, projects2d} from "@/contants/sites.ts";
 import ProjectCard from "@/components/organism/ProjectCard.tsx";
 import {motion, AnimatePresence} from 'motion/react';
 import H3TabTitle from "@/components/atom/H3TabTitle.tsx";
@@ -133,10 +133,9 @@ export default function Landing() {
                         </h2>
 
                         <div className={`flex flex-row justify-center flex-wrap gap-2`}>
-                            <video autoPlay={true} muted={true} src={`/video/samsung_ai_life.mp4`} />
-                            {/*{*/}
-                            {/*    projects.map(project => <ProjectCard key={project.title} project={project}/>)*/}
-                            {/*}*/}
+                            {
+                                projects2d.map(project => <ProjectCard key={project.title} project={project}/>)
+                            }
                         </div>
                     </motion.div>
                 }

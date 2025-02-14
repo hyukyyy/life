@@ -57,8 +57,15 @@ export default function ProjectCard({project}: Props) {
                 >
                     {project.description}
                 </div>
-                <iframe src={project.url}
-                        className={`w-full h-full`}/>
+                {
+                    project.url.startsWith('https://') ?
+                        <iframe
+                            src={project.url}
+                            className={`w-full h-full`}
+                        />
+                        :
+                        <video autoPlay={true} muted={true} src={project.url}/>
+                }
             </div>
 
         </div>
