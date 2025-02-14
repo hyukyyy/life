@@ -4,6 +4,7 @@ import useLayoutStore from "@/store/LayoutStore.ts";
 import Card from "@/pages/Card.tsx";
 import CareerTab from "@/components/template/CareerTab.tsx";
 import ProjectTab from "@/components/template/ProjectTab.tsx";
+import AboutMe from "@/components/template/AboutMe.tsx";
 
 export default function Landing() {
     const {isDarkMode} = useLayoutStore();
@@ -27,6 +28,7 @@ export default function Landing() {
         <Card/>
         <CareerTab />
         <ProjectTab />
+        <AboutMe />
     </>
         ;
 }
