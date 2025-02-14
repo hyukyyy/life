@@ -4,6 +4,7 @@ import {projects, projects2d} from "@/contants/sites.ts";
 import ProjectCard from "@/components/organism/ProjectCard.tsx";
 import useLayoutStore from "@/store/LayoutStore.ts";
 import Arrow from "@/components/atom/UpperArrow.tsx";
+import H2Subtitle from "@/components/atom/H2Subtitle.tsx";
 
 export default function ProjectTab() {
     const {projectTabOpen, toggleProjectTabOpen} = useLayoutStore();
@@ -36,11 +37,9 @@ export default function ProjectTab() {
                         duration: 0.3
                     }}
                 >
-                    <h2
-                        className={`text-[18px] px-10 py-4 text-black font-bold`}
-                    >
+                    <H2Subtitle>
                         3D Tour Projects
-                    </h2>
+                    </H2Subtitle>
 
                     <div className={`flex flex-row justify-center flex-wrap gap-2`}>
                         {
@@ -73,11 +72,9 @@ export default function ProjectTab() {
                         duration: 0.3
                     }}
                 >
-                    <h2
-                        className={`text-[18px] px-10 py-4 text-black font-bold`}
-                    >
+                    <H2Subtitle>
                         2D Websites
-                    </h2>
+                    </H2Subtitle>
 
                     <div className={`flex flex-row justify-center flex-wrap gap-2`}>
                         {

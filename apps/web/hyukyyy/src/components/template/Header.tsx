@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 import BouncingButton from "@/components/molecule/BouncingButton.tsx";
 
 const Wrapper = styled.div`
-    ${tw`sticky top-0 h-[80px] flex items-center justify-between z-10`};
+    ${tw`sticky top-0 h-[80px] flex items-center justify-between z-20`};
     ${tw`duration-300`}
 `
 
