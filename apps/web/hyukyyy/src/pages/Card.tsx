@@ -42,7 +42,7 @@ export default function Card() {
 
 function Rig() {
     useFrame((state, delta) => {
-        easing.damp3(state.camera.position, [-state.pointer.x * 10, -state.pointer.y * 10, 20], 0.2, delta);
+        easing.damp3(state.camera.position, [-state.pointer.x * 3, -state.pointer.y * 5, 20], 0.2, delta);
         state.camera.lookAt(0, 0, -10);
     })
     return null
