@@ -32,9 +32,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build common resources
-        run: pnpm run preinstall
-
       - name: Build project
         # 프로젝트 명 및 package.json script 확인
         run: pnpm run --filter hyukyyy build:dev
