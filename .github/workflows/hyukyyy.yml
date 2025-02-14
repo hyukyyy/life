@@ -34,7 +34,7 @@ jobs:
 
       - name: Build project
         # 프로젝트 명 및 package.json script 확인
-        run: pnpm run --filter hyukyyy build:dev
+        run: pnpm run --filter hyukyyy build
 
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
