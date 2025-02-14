@@ -1,13 +1,15 @@
 import H3TabTitle from "@/components/atom/H3TabTitle.tsx";
 import {AnimatePresence, motion} from "motion/react";
 import useLayoutStore from "@/store/LayoutStore.ts";
+import Arrow from "@/components/atom/UpperArrow.tsx";
 
 export default function CareerTab() {
     const {careerTabOpen, toggleCareerTabOpen} = useLayoutStore();
 
     return <section className={`overflow-y-hidden`}>
-        <H3TabTitle onClick={toggleCareerTabOpen}>
+        <H3TabTitle className={`flex flex-row justify-between items-center`} onClick={toggleCareerTabOpen}>
             Career
+            <Arrow $up={careerTabOpen} />
         </H3TabTitle>
         <AnimatePresence>
             {

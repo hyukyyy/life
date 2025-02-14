@@ -3,13 +3,15 @@ import {AnimatePresence, motion} from "motion/react";
 import {projects, projects2d} from "@/contants/sites.ts";
 import ProjectCard from "@/components/organism/ProjectCard.tsx";
 import useLayoutStore from "@/store/LayoutStore.ts";
+import Arrow from "@/components/atom/UpperArrow.tsx";
 
 export default function ProjectTab() {
     const {projectTabOpen, toggleProjectTabOpen} = useLayoutStore();
 
     return <section className={`overflow-y-hidden`}>
-        <H3TabTitle onClick={toggleProjectTabOpen}>
+        <H3TabTitle className={`flex flex-row justify-between items-center`} onClick={toggleProjectTabOpen}>
             Projects
+            <Arrow $up={projectTabOpen} />
         </H3TabTitle>
 
         <AnimatePresence>

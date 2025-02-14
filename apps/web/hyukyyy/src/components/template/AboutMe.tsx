@@ -4,7 +4,7 @@ import MeCard from "@/components/molecule/MeCard.tsx";
 
 export default function AboutMe() {
     return <section>
-        <H3TabTitle className={`border-none flex justify-center items-center`}>
+        <H3TabTitle className={`border-none flex justify-center items-center py-10`}>
             <span className={`text-[32px] px-4 py-2`}>
                 About Me
             </span>
