@@ -3,8 +3,8 @@ import {myInfo} from "@/contants/myInfo.ts";
 import MeCard from "@/components/molecule/MeCard.tsx";
 
 export default function AboutMe() {
-    return <section>
-        <H3TabTitle className={`border-none flex justify-center items-center py-10`}>
+    return <section className={`py-10 px-2`}>
+        <H3TabTitle className={`border-none flex justify-center items-center`}>
             <span className={`text-[32px] px-4 py-2`}>
                 About Me
             </span>

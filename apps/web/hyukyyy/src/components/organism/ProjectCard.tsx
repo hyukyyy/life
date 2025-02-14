@@ -1,6 +1,7 @@
 import {Project} from "@/contants/sites.ts";
 import H1Title from "@/components/atom/H1Title.tsx";
-import {useState} from "react";
+import {Suspense, useState} from "react";
+import Spinner from "@/components/atom/Spinner.tsx";
 
 interface Props {
     project: Project;
@@ -19,7 +20,7 @@ export default function ProjectCard({project}: Props) {
                 flex 
                 flex-col 
                 justify-center 
-                items-start 
+                items-center 
                 w-[360px] 
                 h-auto 
                 aspect-video 
@@ -57,15 +58,17 @@ export default function ProjectCard({project}: Props) {
                 >
                     {project.description}
                 </div>
-                {
-                    project.url.startsWith('https://') ?
-                        <iframe
-                            src={project.url}
-                            className={`w-full h-full`}
-                        />
-                        :
-                        <video autoPlay={true} muted={true} src={project.url}/>
-                }
+                <Suspense fallback={<Spinner/>}>
+                    {
+                        project.url.startsWith('https://') ?
+                            <iframe
+                                src={project.url}
+                                className={`w-full h-full`}
+                            />
+                            :
+                            <video autoPlay={true} muted={true} src={project.url}/>
+                    }
+                </Suspense>
             </div>
 
         </div>

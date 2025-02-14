@@ -36,7 +36,7 @@ export default function CareerTab() {
                         duration: 0.3
                     }}
                 >
-                    <div className={`flex flex-row justify-between my-10`}>
+                    <div className={`flex flex-row justify-between my-10 px-10`}>
                         <div className={`flex-1 flex justify-center items-center`}>
                             <RoundImg className={`w-1/2 h-auto aspect-square`} src={'/nnbox-logo.png'}/>
                         </div>
@@ -68,7 +68,7 @@ export default function CareerTab() {
                             </ul>
                         </div>
                     </div>
-                    <div className={`flex flex-row justify-between`}>
+                    <div className={`flex flex-row justify-between my-10 px-10`}>
                         <div className={`flex-1 flex justify-center items-center`}>
                             <RoundImg className={`w-1/2 h-auto aspect-square`} src={'/olim-logo.png'}/>
                         </div>
