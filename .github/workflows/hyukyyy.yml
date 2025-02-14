@@ -1,0 +1,54 @@
+name: Build and Deploy to S3
+
+on:
+  push:
+    branches:
+      # 적용 branch 확인
+      - hyukyyy/dev
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build common resources
+        run: pnpm run preinstall
+
+      - name: Build project
+        # 프로젝트 명 및 package.json script 확인
+        run: pnpm run --filter hyukyyy build:dev
+
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --follow-symlinks --delete
+        env:
+          # 배포환경 dev/prd bucket 확인
+          AWS_S3_BUCKET: ${{ secrets.AWS_DEV_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          # 프로젝트 명 및 package.json script 확인
+          SOURCE_DIR: './apps/web/hyukyyy/dist'
+          # 대상 프로젝트 directory 확인
+          DEST_DIR: ${{ secrets.AWS_S3_HYUKYYY_OBJECT_PATH }}
