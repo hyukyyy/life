@@ -11,7 +11,7 @@ export default function CareerTab() {
     return <section className={`overflow-y-hidden`}>
         <H3TabTitle className={`flex flex-row justify-between items-center`} onClick={toggleCareerTabOpen}>
             Career
-            <Arrow $up={careerTabOpen} />
+            <Arrow $up={careerTabOpen}/>
         </H3TabTitle>
         <AnimatePresence>
             {
@@ -74,7 +74,9 @@ export default function CareerTab() {
                         </div>
                         <div className={`flex-1 flex flex-col justify-center`}>
                             <span>2023.07-now</span>
-                            <H3TabTitle className={`p-0 border-0 my-3`}>올림플래닛</H3TabTitle>
+                            <a href={`https://www.olimplanet.com/`}>
+                                <H3TabTitle className={`p-0 border-0 my-3`}>올림플래닛</H3TabTitle>
+                            </a>
                             <H2Subtitle className={`p-0 my-1`}>ELYPECS - 3D web solution 서비스</H2Subtitle>
                             <ul>
                                 <li>3d 웹 콘텐츠 솔루션 개발팀</li>
@@ -89,13 +91,9 @@ export default function CareerTab() {
                                 <li>2. 이노블록 - 부동산 견적 시스템</li>
                                 <li>3. 큐리스올 - 가상 진료실</li>
                                 <li>4. 행복의 나라 - 프로모션</li>
-
                             </ul>
                         </div>
-
-
                     </div>
-
                 </motion.div>
             }
         </AnimatePresence>
