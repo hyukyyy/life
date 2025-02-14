@@ -5,6 +5,7 @@ import Card from "@/pages/Card.tsx";
 import CareerTab from "@/components/template/CareerTab.tsx";
 import ProjectTab from "@/components/template/ProjectTab.tsx";
 import AboutMe from "@/components/template/AboutMe.tsx";
+import SkillsetTab from "@/components/template/SkillsetTab.tsx";
 
 export default function Landing() {
     const {isDarkMode} = useLayoutStore();
@@ -26,6 +27,7 @@ export default function Landing() {
             alt={'landing_page_svg'}
         />
         <Card/>
+        <SkillsetTab />
         <CareerTab />
         <ProjectTab />
         <AboutMe />

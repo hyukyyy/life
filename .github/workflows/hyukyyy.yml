@@ -4,7 +4,7 @@ on:
   push:
     branches:
       # 적용 branch 확인
-      - hyukyyy/dev
+      - hyukyyy/prd
 
 jobs:
   build:
